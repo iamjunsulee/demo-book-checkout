@@ -19,6 +19,6 @@ public class MemberController {
     @ResponseBody
     public String saveMember(@RequestBody MemberDto.RequestMemberDto requestMemberDto) {
         memberService.saveMember(requestMemberDto);
-        return "succes";
+        return "success";
     }
 }
