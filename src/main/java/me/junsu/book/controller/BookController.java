@@ -17,8 +17,8 @@ public class BookController {
 
     @PostMapping("/add")
     @ResponseBody
-    public String saveBook(@RequestBody BookDto.RequestBookDto requestBookDto) {
-        bookService.saveBook(requestBookDto);
+    public String saveBook(@RequestBody BookDto bookDto) {
+        bookService.saveBook(bookDto);
         return "success";
     }
 }

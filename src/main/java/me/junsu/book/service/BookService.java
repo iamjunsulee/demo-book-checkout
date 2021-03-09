@@ -3,5 +3,5 @@ package me.junsu.book.service;
 import me.junsu.book.dto.BookDto;
 
 public interface BookService {
-    Long saveBook(BookDto.RequestBookDto requestBookDto);
+    Long saveBook(BookDto bookDto);
 }

@@ -17,8 +17,8 @@ public class MemberController {
 
     @PostMapping("/add")
     @ResponseBody
-    public String saveMember(@RequestBody MemberDto.RequestMemberDto requestMemberDto) {
-        memberService.saveMember(requestMemberDto);
+    public String saveMember(@RequestBody MemberDto memberDto) {
+        memberService.saveMember(memberDto);
         return "success";
     }
 }

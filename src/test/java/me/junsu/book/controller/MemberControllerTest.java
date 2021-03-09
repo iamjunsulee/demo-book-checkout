@@ -29,7 +29,7 @@ class MemberControllerTest {
 
     @Test
     public void postmapping_저장_테스트() throws Exception {
-        MemberDto.RequestMemberDto requestMemberDto = new MemberDto.RequestMemberDto();
+        MemberDto requestMemberDto = new MemberDto();
         requestMemberDto.setName("leejunsu");
         requestMemberDto.setPhone("01012341234");
         String valueAsString = objectMapper.writeValueAsString(requestMemberDto);

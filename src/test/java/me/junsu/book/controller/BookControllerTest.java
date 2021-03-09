@@ -31,7 +31,7 @@ class BookControllerTest {
     ObjectMapper objectMapper;
     @Test
     public void 책_저장_테스트() throws Exception {
-        BookDto.RequestBookDto requestBookDto = new BookDto.RequestBookDto();
+        BookDto requestBookDto = new BookDto();
         requestBookDto.setAuthor("leejunsu");
         requestBookDto.setPrice(18000);
         requestBookDto.setPublishDate(LocalDateTime.now());

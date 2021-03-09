@@ -6,15 +6,14 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class BookDto {
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    public static class RequestBookDto {
-        private String title;
-        private String author;
-        private String publisher;
-        private Integer price;
-        private LocalDateTime publishDate;
-    }
+    private Long id;
+    private String title;
+    private String author;
+    private String publisher;
+    private Integer price;
+    private LocalDateTime publishDate;
 }
