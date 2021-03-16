@@ -13,8 +13,17 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@SequenceGenerator(
+        name = "BOOK_SEQ_GENERATOR",
+        allocationSize = 1,
+        sequenceName = "BOOK_SEQ"
+)
 public class Book {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "BOOK_SEQ_GENERATOR"
+    )
     @Column(name = "book_id")
     private Long id;
 

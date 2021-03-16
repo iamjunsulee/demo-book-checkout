@@ -4,20 +4,22 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@SequenceGenerator(
+        name = "MEMBER_SEQ_GENERATOR",
+        allocationSize = 1,
+        sequenceName = "MEMBER_SEQ"
+)
 public class Member {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "MEMBER_SEQ_GENERATOR"
+    )
     @Column(name = "member_id")
     private Long id;
 

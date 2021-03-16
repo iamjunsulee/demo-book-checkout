@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>제목</th>
+            <th>저자</th>
+            <th>출판사</th>
+            <th>발행일</th>
+            <th>가격</th>
+        </tr>
+        <tr th:each="book : ${bookList}">
+            <td th:text="${book.id}"></td>
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.publisher}"></td>
+            <td th:text="${book.publishDate}"></td>
+            <td th:text="${book.price}"></td>
+        </tr>
+    </table>
+</body>
+</html>
