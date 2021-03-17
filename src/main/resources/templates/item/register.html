@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Registration</title>
+</head>
+<body>
+    <form th:action="@{/item/add}" method="post" th:object="${itemDto}">
+        <div>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+            <label>이름 :
+                <input type="text" th:field="*{name}">
+            </label>
+        </div>
+        <div>
+            <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
+            <label>가격 :
+                <input type="text" th:field="*{price}">
+            </label>
+        </div>
+        <div>
+            <p th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></p>
+            <label>수량 :
+                <input type="text" th:field="*{stock}">
+            </label>
+        </div>
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>

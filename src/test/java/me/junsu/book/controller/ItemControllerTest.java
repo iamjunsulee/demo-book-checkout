@@ -30,11 +30,9 @@ class ItemControllerTest {
     @Test
     public void 책_저장_테스트() throws Exception {
         ItemDto requestItemDto = new ItemDto();
-        requestItemDto.setAuthor("leejunsu");
         requestItemDto.setPrice(18000);
-        requestItemDto.setPublishDate(LocalDateTime.now());
-        requestItemDto.setTitle("springframework");
-        requestItemDto.setPublisher("꿈출판사");
+        requestItemDto.setName("springframework");
+        requestItemDto.setStock(1);
 
         String jsonString = objectMapper.writeValueAsString(requestItemDto);
 

@@ -33,11 +33,9 @@ public class BookApplication {
 
         //book data load
         ItemDto itemDto = new ItemDto();
-        itemDto.setAuthor("김영한");
         itemDto.setPrice(43000);
-        itemDto.setPublisher("에이콘");
-        itemDto.setTitle("자바 ORM 표준 JPA 프로그래밍");
-        itemDto.setPublishDate(LocalDateTime.now());
-        itemService.saveBook(itemDto);
+        itemDto.setName("자바 ORM 표준 JPA 프로그래밍");
+        itemDto.setStock(1);
+        itemService.saveItem(itemDto);
     }
 }

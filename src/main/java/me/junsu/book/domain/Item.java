@@ -27,22 +27,16 @@ public class Item {
     @Column(name = "item_id")
     private Long id;
 
-    private String title;
+    private String name;
 
-    private String author;
+    private int price;
 
-    private String publisher;
-
-    private Integer price;
-
-    private LocalDateTime publishDate;
+    private int stock;
 
     @Builder
-    public Item(String title, String author, String publisher, Integer price, LocalDateTime publishDate) {
-        this.title = title;
-        this.author = author;
-        this.publisher = publisher;
+    public Item(String name, int price, int stock) {
+        this.name = name;
         this.price = price;
-        this.publishDate = publishDate;
+        this.stock = stock;
     }
 }
