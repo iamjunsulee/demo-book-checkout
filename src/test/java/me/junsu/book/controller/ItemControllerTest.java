@@ -1,8 +1,7 @@
 package me.junsu.book.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.junsu.book.dto.BookDto;
+import me.junsu.book.dto.ItemDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -23,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-class BookControllerTest {
+class ItemControllerTest {
     @Autowired
     MockMvc mockMvc;
 
@@ -31,14 +29,14 @@ class BookControllerTest {
     ObjectMapper objectMapper;
     @Test
     public void 책_저장_테스트() throws Exception {
-        BookDto requestBookDto = new BookDto();
-        requestBookDto.setAuthor("leejunsu");
-        requestBookDto.setPrice(18000);
-        requestBookDto.setPublishDate(LocalDateTime.now());
-        requestBookDto.setTitle("springframework");
-        requestBookDto.setPublisher("꿈출판사");
+        ItemDto requestItemDto = new ItemDto();
+        requestItemDto.setAuthor("leejunsu");
+        requestItemDto.setPrice(18000);
+        requestItemDto.setPublishDate(LocalDateTime.now());
+        requestItemDto.setTitle("springframework");
+        requestItemDto.setPublisher("꿈출판사");
 
-        String jsonString = objectMapper.writeValueAsString(requestBookDto);
+        String jsonString = objectMapper.writeValueAsString(requestItemDto);
 
         this.mockMvc.perform(post("/book/add")
                     .contentType(MediaType.APPLICATION_JSON)

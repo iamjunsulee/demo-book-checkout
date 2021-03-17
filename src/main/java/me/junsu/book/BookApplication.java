@@ -1,10 +1,9 @@
 package me.junsu.book;
 
 import lombok.RequiredArgsConstructor;
-import me.junsu.book.domain.Book;
-import me.junsu.book.dto.BookDto;
+import me.junsu.book.dto.ItemDto;
 import me.junsu.book.dto.MemberDto;
-import me.junsu.book.service.BookService;
+import me.junsu.book.service.ItemService;
 import me.junsu.book.service.MemberService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class BookApplication {
     private final MemberService memberService;
-    private final BookService bookService;
+    private final ItemService itemService;
 
     public static void main(String[] args) {
         SpringApplication.run(BookApplication.class, args);
@@ -33,12 +32,12 @@ public class BookApplication {
         memberService.saveMember(memberDto);
 
         //book data load
-        BookDto bookDto = new BookDto();
-        bookDto.setAuthor("김영한");
-        bookDto.setPrice(43000);
-        bookDto.setPublisher("에이콘");
-        bookDto.setTitle("자바 ORM 표준 JPA 프로그래밍");
-        bookDto.setPublishDate(LocalDateTime.now());
-        bookService.saveBook(bookDto);
+        ItemDto itemDto = new ItemDto();
+        itemDto.setAuthor("김영한");
+        itemDto.setPrice(43000);
+        itemDto.setPublisher("에이콘");
+        itemDto.setTitle("자바 ORM 표준 JPA 프로그래밍");
+        itemDto.setPublishDate(LocalDateTime.now());
+        itemService.saveBook(itemDto);
     }
 }

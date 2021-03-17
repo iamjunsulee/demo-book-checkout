@@ -14,17 +14,17 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @SequenceGenerator(
-        name = "BOOK_SEQ_GENERATOR",
+        name = "ITEM_SEQ_GENERATOR",
         allocationSize = 1,
-        sequenceName = "BOOK_SEQ"
+        sequenceName = "ITEM_SEQ"
 )
-public class Book {
+public class Item {
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "BOOK_SEQ_GENERATOR"
+            generator = "ITEM_SEQ_GENERATOR"
     )
-    @Column(name = "book_id")
+    @Column(name = "item_id")
     private Long id;
 
     private String title;
@@ -38,7 +38,7 @@ public class Book {
     private LocalDateTime publishDate;
 
     @Builder
-    public Book(String title, String author, String publisher, Integer price, LocalDateTime publishDate) {
+    public Item(String title, String author, String publisher, Integer price, LocalDateTime publishDate) {
         this.title = title;
         this.author = author;
         this.publisher = publisher;

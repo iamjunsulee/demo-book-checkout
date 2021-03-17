@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class BookDto {
+public class ItemDto {
     private Long id;
     private String title;
     private String author;
