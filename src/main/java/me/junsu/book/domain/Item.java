@@ -31,12 +31,12 @@ public class Item {
 
     private int price;
 
-    private int stock;
+    private int stockQuantity;
 
     @Builder
-    public Item(String name, int price, int stock) {
+    public Item(String name, int price, int stockQuantity) {
         this.name = name;
         this.price = price;
-        this.stock = stock;
+        this.stockQuantity = stockQuantity;
     }
 }

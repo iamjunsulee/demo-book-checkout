@@ -32,7 +32,7 @@ class ItemControllerTest {
         ItemDto requestItemDto = new ItemDto();
         requestItemDto.setPrice(18000);
         requestItemDto.setName("springframework");
-        requestItemDto.setStock(1);
+        requestItemDto.setStockQuantity(1);
 
         String jsonString = objectMapper.writeValueAsString(requestItemDto);
 

@@ -35,7 +35,7 @@ public class BookApplication {
         ItemDto itemDto = new ItemDto();
         itemDto.setPrice(43000);
         itemDto.setName("자바 ORM 표준 JPA 프로그래밍");
-        itemDto.setStock(1);
+        itemDto.setStockQuantity(1);
         itemService.saveItem(itemDto);
     }
 }

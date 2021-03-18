@@ -22,5 +22,5 @@ public class ItemDto {
             value = 1,
             message = "재고수량은 1개 이상만 입력가능합니다."
     )
-    private int stock;
+    private int stockQuantity;
 }
