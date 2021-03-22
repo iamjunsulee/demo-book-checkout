@@ -21,7 +21,7 @@ public class ItemController {
     public String saveItem(@ModelAttribute @Valid ItemDto itemDto,
                            BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
-            return "/item/register";
+            return "item/itemRegister";
         }
         itemService.saveItem(itemDto);
         return "redirect:/item/list";
@@ -30,13 +30,21 @@ public class ItemController {
     @GetMapping("/add")
     public String viewRegistrationPage(Model model) {
         model.addAttribute("itemDto", new ItemDto());
-        return "/item/register";
+        return "item/itemRegister";
     }
 
     @GetMapping("/list")
     public String getItems(Model model) {
         List<ItemDto> items = itemService.getItems();
         model.addAttribute("items", items);
-        return "/item/list";
+        return "item/itemList";
+    }
+
+    @GetMapping("/{id}")
+    public String getItemById(@PathVariable Long id,
+                              Model model) {
+        ItemDto itemDto = itemService.getItemById(id);
+        model.addAttribute("itemDto", itemDto);
+        return "item/itemDetail";
     }
 }

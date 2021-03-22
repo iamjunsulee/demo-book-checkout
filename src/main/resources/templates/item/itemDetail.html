@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>상품 상세</title>
 </head>
 <body>
-$END$
+    <h2>상품 정보</h2>
+    <h3 th:text="${itemDto.name}"></h3>
+    <h3 th:text="${#numbers.formatInteger(itemDto.price, 3, 'COMMA')} + '원'"></h3>
+    <div th:if="${itemDto.stockQuantity} < 1">
+        <i>품 절</i>
+    </div>
+    <div th:unless="${itemDto.stockQuantity} < 1">
+        <form>
+            <div>
+                <label>
+                    <input type="text" th:name="itemId" th:value="${itemDto.id}" style="display: none">
+                </label>
+                <label>
+                    <input type="number" th:name="orderQuantity" th:value="1" th:min="1" th:max="${itemDto.stockQuantity}">
+                </label>
+            </div>
+            <div>
+                <input type="submit" th:formmethod="post" th:formaction="@{/order}" value="주문하기">
+                <input type="submit" th:formmethod="post" th:formaction="@{/cart}" value="장바구니 담기">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
