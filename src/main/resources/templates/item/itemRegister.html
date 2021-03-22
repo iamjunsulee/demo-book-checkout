@@ -5,6 +5,7 @@
     <title>Item Registration</title>
 </head>
 <body>
+    <h2>상품 등록</h2>
     <form th:action="@{/item/add}" method="post" th:object="${itemDto}">
         <div>
             <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
@@ -19,9 +20,9 @@
             </label>
         </div>
         <div>
-            <p th:if="${#fields.hasErrors('stock')}" th:errors="*{stock}"></p>
+            <p th:if="${#fields.hasErrors('stockQuantity')}" th:errors="*{stockQuantity}"></p>
             <label>수량 :
-                <input type="text" th:field="*{stock}">
+                <input type="text" th:field="*{stockQuantity}">
             </label>
         </div>
         <input type="submit" value="등록">
