@@ -39,4 +39,16 @@ public class Item {
         this.price = price;
         this.stockQuantity = stockQuantity;
     }
+    /* 비지니스 메소드 재고 증가/감소 */
+    public void addStock(int quantity) {
+        this.stockQuantity += quantity;
+    }
+
+    public void removeStock(int quantity) {
+        int restStock = this.stockQuantity - quantity;
+        if(restStock < 0) {
+            throw new IllegalStateException("재고 없음");
+        }
+        this.stockQuantity = restStock;
+    }
 }
